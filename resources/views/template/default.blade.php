@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="th">
 <head>
     <meta charset="utf-8" />
-    <title>Workshop HTML</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css" />
+    <title>Pokedex Master</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
     <style>
-        body {
-            font-family: "Sarabun", sans-serif;
+        body { 
+            font-family: 'Kanit', sans-serif; 
+            background: #f0f2f5; /* สีพื้นหลังเทาอ่อน */
+            min-height: 100vh;
+        }
+        .main-card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .gradient-header {
+            background: linear-gradient(45deg, #FF512F 0%, #DD2476 100%); /* ไล่เฉดสีส้ม-แดง */
+            color: white;
+            border: none;
         }
     </style>
-
 </head>
-
 <body>
-    <div class="container">
-        <h1>template/default.blade.php</h1>
+    <div class="container py-5">
         @yield('content')
     </div>
-    @stack('scripts')
 </body>
-
 </html>

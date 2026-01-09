@@ -1,18 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FormController; 
+use App\Http\Controllers\PokedexController;
+use App\Http\Controllers\MyController;
 
-Route::get('/', [FormController::class, 'showForm']);       
-Route::post('/', [FormController::class, 'handleSubmit']); 
-Route::get('/view2', function(){
-    return view('myview2');
-});
+Route::get('/', [PokedexController::class, 'index']); 
 
-Route::get('/mycontroller', [App\Http\Controllers\MyController::class, 'INDEX']);
-Route::post('/mycontroller', [App\Http\Controllers\MyController::class, 'process']);
-Route::get('/test', [App\Http\Controllers\MyController::class, 'index']);
+Route::post('/welcome', [MyController::class, 'store_index']);
+Route::get('/mycontroller', [MyController::class, 'index']);
+Route::get('/calculate', [MyController::class, 'info']);
+Route::post('/calculate', [MyController::class, 'calculate']);
 
-Route::namespace('App\Http\Controllers')->group(function() {
-    Route::get('/flight', 'FlightController@index');
-});
+Route::resource('pokedexs', PokedexController::class);
